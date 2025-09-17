@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Durmus Trading</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            background: #f4f4f4;
+            color: #222;
+        }
+        header {
+            background: #1a237e;
+            color: #fff;
+            padding: 30px 0 20px 0;
+            text-align: center;
+            background-image: linear-gradient(45deg, #1a237e, #3949ab);
+        }
+        nav {
+            background: #283593;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 15px 0;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1em;
+            padding: 8px 18px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        nav a.active, nav a:hover {
+            background: #3949ab;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            padding: 40px 30px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.5em;
+            letter-spacing: 2px;
+        }
+        .fade-in {
+            display: none;
+        }
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .container {
+                padding: 20px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Durmus Trading</h1>
+        <p>Your trusted partner in global trade solutions</p>
+    </header>
+    <nav>
+        <a href="#contacts" class="menu-link active">Contacts</a>
+        <a href="#about" class="menu-link">About Us</a>
+        <a href="#certifications" class="menu-link">Certifications</a>
+        <a href="#works" class="menu-link">Our Works</a>
+    </nav>
+    <div class="container">
+        <div id="contacts" class="fade-in" style="display:block; background-image: url('images/contactus.jpg'); background-size: cover; background-position: center; color: white; padding: 60px; border-radius: 8px;">
+            <h2>Contact Us</h2>
+            <p>Email: cem@durmustrading.com<br>
+            Phone: +1 234 567 8901<br>
+            Address: 123 Trade Avenue, City, Country</p>
+        </div>
+        <div id="about" class="fade-in" style="background-image: url(images/aboutus.jpg); background-size: cover; background-position: center; color: white; padding: 60px; border-radius: 8px;">
+            <h2>About Us</h2>
+            <p>Durmus Trading is a leading provider of international trading solutions, connecting businesses worldwide with quality products and reliable services.</p>
+        </div>
+        <div id="certifications" class="fade-in">
+            <h2>Certifications</h2>
+            <p>We are certified by global authorities, ensuring compliance and quality in every transaction.</p>
+            <img src="images/certifications.jpg" alt="Certification 1" style="max-width: 150px; margin: 10px;">
+        </div>
+        <div id="works" class="fade-in">
+            <h2>Our Works</h2>
+            <p>Explore our portfolio of successful trading projects and satisfied clients across the globe.</p>
+            <img src="images/ourworks.jpg" alt="Work 1" style="max-width: 150px; margin: 10px;">
+        </div>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $('.menu-link').click(function(e){
+                e.preventDefault();
+                var target = $(this).attr('href').substring(1);
+
+                // Highlight active menu
+                $('.menu-link').removeClass('active');
+                $(this).addClass('active');
+
+                // Fade in the selected section
+                $('.fade-in').fadeOut(20, function(){
+                    $('#' + target).fadeIn(300);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
